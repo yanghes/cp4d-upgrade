@@ -286,6 +286,7 @@ During the upgrade, we takes MinIO (https://www.minio.io) to backup CPD cluster 
 If you need download CPD CLI and OpenShift CLI in a restricted network, please add these urls into whitelist/allowlist.
   1. https://github.com/IBM/cpd-cli/releases/download : CPD CLI packages
   2. https://mirror.openshift.com/pub : OpenShift CLI packages
+  3. https://docker.io : Images to setup Private Container Registry
 
 If you need mirror CPD images into PCR (private container registry) in a restricted network, please add these urls into whitelist/allowlist.
   1. cp.icr.io/cp : Images that are pulled from the IBM Entitled Registry that require an entitlement key to download. Most of the IBM Cloud Pak for Data software uses this tag.
