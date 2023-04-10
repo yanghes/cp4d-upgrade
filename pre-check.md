@@ -17,6 +17,8 @@ Test internet connection, and make sure the output from the target url and it ca
 ```
 curl -v https://github.com/IBM
 
+curl -v https://icr.io
+
 curl -v https://mirror.openshift.com/pub
 
 ```
@@ -280,6 +282,21 @@ podman login quay.io --authfile ${LOCAL_SECRET_JSON}
 
 During the upgrade, we takes MinIO (https://www.minio.io) to backup CPD cluster on bastion node, so port #9000 and #9001 need to be opened for bastion node ip address.
 
+
+If you need download CPD CLI and OpenShift CLI in a restricted network, please add these urls into whitelist/allowlist.
+  1. https://github.com/IBM/cpd-cli/releases/download : CPD CLI packages
+  2. https://mirror.openshift.com/pub : OpenShift CLI packages
+
+If you need mirror CPD images into PCR (private container registry) in a restricted network, please add these urls into whitelist/allowlist.
+  1. cp.icr.io/cp : Images that are pulled from the IBM Entitled Registry that require an entitlement key to download. Most of the IBM Cloud Pak for Data software uses this tag.
+  2. icr.io/cpopen : Publicly available images that are provided by IBM and that don't require an entitlement key to download. The IBM Cloud Pak for Data operators use this tag.
+
+If you need mirror OCP 4 images into PCR (private container registry) in a restricted network, please put these urls into whitelist/allowlist too.
+  1. registry.redhat.io : provides core container images
+  2. *.quay.io : provides core container images
+  3. sso.redhat.com : the https://cloud.redhat.com/openshift site uses authentication from sso.redhat.com
+  4. mirror.openshift.com : required to access mirrored installation content and images
+  5. registry.connect.redhat.com : provides third-party images
 
 ---
 
